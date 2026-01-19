@@ -1,16 +1,18 @@
+    <h1>Liste</h1>
+
 <div class="conteneur-fichier">
     <div class="infos-fichier">
         <span class="icone-fichier">🖼️</span>
         <div class="details-texte">
             <strong>Ep-equipment-CE-produits-2026-01-16.png</strong>
-            <p>Format optimisé | Mise à jour : 19 janv. 2026</p>
+            <p>Aperçu plein écran | Mise à jour : 19 janv. 2026</p>
         </div>
     </div>
     
     <div class="group-boutons">
-        <a href="Ep-equipment-CE-produits-2026-01-16.png" target="_blank" class="btn-action btn-apercu">
+        <button onclick="ouvrirApercu()" class="btn-action btn-apercu">
             Aperçu
-        </a>
+        </button>
 
         <a href="Ep-equipment-CE-produits-2026-01-16.png" download="Catalogue-EP-Equipment-2026.png" class="btn-action btn-telecharger">
             Télécharger
@@ -18,8 +20,30 @@
     </div>
 </div>
 
+<script>
+function ouvrirApercu() {
+    const urlImage = "Ep-equipment-CE-produits-2026-01-16.png";
+    const nouvelleFenetre = window.open("");
+    
+    // On écrit dynamiquement du HTML dans le nouvel onglet pour forcer la largeur
+    nouvelleFenetre.document.write(`
+        <html>
+            <head>
+                <title>Aperçu - EP Equipment</title>
+                <style>
+                    body { margin: 0; padding: 0; display: flex; justify-content: center; background: #f0f0f0; }
+                    img { width: 100vw; height: auto; max-width: 100%; object-fit: contain; }
+                </style>
+            </head>
+            <body>
+                <img src="${urlImage}" alt="Aperçu">
+            </body>
+        </html>
+    `);
+}
+</script>
+
 <style>
-    /* Configuration du conteneur principal */
     .conteneur-fichier {
         display: flex;
         align-items: center;
@@ -29,86 +53,38 @@
         padding: 16px 24px;
         border-radius: 8px;
         margin: 12px 0;
-        max-width: 100%; /* S'adapte à la largeur de la page */
+        max-width: 100%;
         box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: -apple-system, sans-serif;
     }
 
-    /* Style des textes et icônes */
-    .infos-fichier {
-        display: flex;
-        align-items: center;
-    }
-    .icone-fichier {
-        font-size: 24px;
-        margin-right: 16px;
-    }
-    .details-texte strong {
-        display: block;
-        color: #24292e;
-        font-size: 14px;
-        word-break: break-all; /* Évite que le nom long ne dépasse sur mobile */
-    }
-    .details-texte p {
-        margin: 4px 0 0;
-        color: #586069;
-        font-size: 12px;
-    }
+    .infos-fichier { display: flex; align-items: center; }
+    .icone-fichier { font-size: 24px; margin-right: 16px; }
+    .details-texte strong { display: block; color: #24292e; font-size: 14px; word-break: break-all; }
+    .details-texte p { margin: 4px 0 0; color: #586069; font-size: 12px; }
 
-    /* Gestion des boutons */
-    .group-boutons {
-        display: flex;
-        gap: 10px;
-    }
+    .group-boutons { display: flex; gap: 10px; }
     .btn-action {
+        cursor: pointer;
         text-decoration: none;
         font-size: 13px;
         font-weight: 600;
         padding: 10px 16px;
         border-radius: 6px;
-        transition: background-color 0.2s;
+        border: 1px solid transparent;
+        transition: 0.2s;
         white-space: nowrap;
     }
 
-    /* Style spécifique : Aperçu (Gris clair) */
-    .btn-apercu {
-        background-color: #f6f8fa;
-        color: #24292e;
-        border: 1px solid #d1d5da;
-    }
-    .btn-apercu:hover {
-        background-color: #f3f4f6;
-    }
+    .btn-apercu { background-color: #f6f8fa; color: #24292e; border-color: #d1d5da; }
+    .btn-apercu:hover { background-color: #f3f4f6; }
 
-    /* Style spécifique : Télécharger (Bleu) */
-    .btn-telecharger {
-        background-color: #0366d6;
-        color: white;
-        border: 1px solid #0366d6;
-    }
-    .btn-telecharger:hover {
-        background-color: #005cc5;
-    }
+    .btn-telecharger { background-color: #0366d6; color: white; border-color: #0366d6; }
+    .btn-telecharger:hover { background-color: #005cc5; }
 
-    /* --- Adaptabilité Mobile (Responsive) --- */
     @media (max-width: 500px) {
-        .conteneur-fichier {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .group-boutons {
-            margin-top: 15px;
-            width: 100%;
-        }
-        .btn-action {
-            flex: 1;
-            text-align: center;
-        }
-    }
-
-    /* Assure que l'image affichée dans la page est toujours responsive */
-    img {
-        max-width: 100%;
-        height: auto;
+        .conteneur-fichier { flex-direction: column; align-items: flex-start; }
+        .group-boutons { margin-top: 15px; width: 100%; }
+        .btn-action { flex: 1; text-align: center; }
     }
 </style>
