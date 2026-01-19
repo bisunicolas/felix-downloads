@@ -9,9 +9,36 @@
     </div>
     
     <div class="group-boutons">
-        <button onclick="ouvrirApercuForce()" class="btn-action btn-apercu">
-            Aperçu
-        </button>
+        <button onclick="ouvrirApercuHache()" class="btn-action btn-apercu">Aperçu</button>
+
+<script>
+function ouvrirApercuHache() {
+    const urlImage = "Ep-equipment-CE-produits-2026-01-16.png";
+    // On ouvre une page liée à votre domaine actuel + #pic1
+    const fenetre = window.open(window.location.pathname + "#pic1", "_blank");
+    
+    fenetre.document.write(`
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aperçu - Pic1</title>
+            <style>
+                body { margin: 0; background: #333; }
+                img { width: 100%; height: auto; display: block; }
+            </style>
+        </head>
+        <body>
+            <img src="${window.location.origin + window.location.pathname.replace('index.html', '') + urlImage}" style="width:100%">
+        </body>
+        </html>
+    `);
+    fenetre.document.close();
+}
+</script>
+        
+
 
         <a href="Ep-equipment-CE-produits-2026-01-16.png" download="Catalogue-EP-Equipment-2026.png" class="btn-action btn-telecharger">
             Télécharger
