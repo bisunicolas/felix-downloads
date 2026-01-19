@@ -7,6 +7,37 @@
         body { font-family: sans-serif; margin: 40px; line-height: 1.6; }
         .download-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
         .btn { background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+        .action-buttons {
+        display: flex;
+        gap: 8px;
+    }
+    .btn-action {
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 6px;
+        transition: 0.2s;
+    }
+    /* 预览按钮：灰色样式 */
+    .preview-link {
+        background-color: #f6f8fa;
+        color: #24292e;
+        border: 1px solid #d1d5da;
+    }
+    .preview-link:hover {
+        background-color: #f3f4f6;
+        border-color: #1b1f2326;
+    }
+    /* 下载按钮：蓝色样式 */
+    .download-link {
+        background-color: #0366d6;
+        color: white;
+        border: 1px solid #0366d6;
+    }
+    .download-link:hover {
+        background-color: #005cc5;
+    }
     </style>
 </head>
 <body>
@@ -18,7 +49,7 @@
         <a href="Ep-equipment-CE-produits-2026-01-16.png" class="btn" download>Download</a>
 
         <a href="Ep-equipment-CE-produits-2026-01-16.png" target="_blank" class="btn-action preview-link">
-            预览 (Preview)
+            Aperçu
         </a>
     </div>
 
