@@ -1,16 +1,15 @@
     <h1>Liste</h1>
-
 <div class="conteneur-fichier">
     <div class="infos-fichier">
         <span class="icone-fichier">🖼️</span>
         <div class="details-texte">
             <strong>Ep-equipment-CE-produits-2026-01-16.png</strong>
-            <p>Aperçu plein écran | Mise à jour : 19 janv. 2026</p>
+            <p>Aperçu largeur automatique | Mise à jour : 19 janv. 2026</p>
         </div>
     </div>
     
     <div class="group-boutons">
-        <button onclick="ouvrirApercu()" class="btn-action btn-apercu">
+        <button onclick="ouvrirApercuForce()" class="btn-action btn-apercu">
             Aperçu
         </button>
 
@@ -21,25 +20,40 @@
 </div>
 
 <script>
-function ouvrirApercu() {
+function ouvrirApercuForce() {
     const urlImage = "Ep-equipment-CE-produits-2026-01-16.png";
-    const nouvelleFenetre = window.open("");
+    const fenetreApercu = window.open("");
     
-    // On écrit dynamiquement du HTML dans le nouvel onglet pour forcer la largeur
-    nouvelleFenetre.document.write(`
-        <html>
-            <head>
-                <title>Aperçu - EP Equipment</title>
-                <style>
-                    body { margin: 0; padding: 0; display: flex; justify-content: center; background: #f0f0f0; }
-                    img { width: 100vw; height: auto; max-width: 100%; object-fit: contain; }
-                </style>
-            </head>
-            <body>
-                <img src="${urlImage}" alt="Aperçu">
-            </body>
+    // On construit une page HTML complète dans le nouvel onglet
+    fenetreApercu.document.write(`
+        <!DOCTYPE html>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Aperçu du Catalogue</title>
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: #333;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                img {
+                    width: 100%;       /* Force l'image à prendre toute la largeur */
+                    height: auto;      /* Préserve les proportions */
+                    display: block;
+                }
+            </style>
+        </head>
+        <body>
+            <img src="${urlImage}" alt="Aperçu Catalogue">
+        </body>
         </html>
     `);
+    fenetreApercu.document.close();
 }
 </script>
 
@@ -55,32 +69,29 @@ function ouvrirApercu() {
         margin: 12px 0;
         max-width: 100%;
         box-sizing: border-box;
-        font-family: -apple-system, sans-serif;
+        font-family: sans-serif;
     }
 
     .infos-fichier { display: flex; align-items: center; }
     .icone-fichier { font-size: 24px; margin-right: 16px; }
-    .details-texte strong { display: block; color: #24292e; font-size: 14px; word-break: break-all; }
+    .details-texte strong { display: block; color: #24292e; font-size: 14px; }
     .details-texte p { margin: 4px 0 0; color: #586069; font-size: 12px; }
 
     .group-boutons { display: flex; gap: 10px; }
     .btn-action {
         cursor: pointer;
-        text-decoration: none;
         font-size: 13px;
         font-weight: 600;
         padding: 10px 16px;
         border-radius: 6px;
+        text-decoration: none;
         border: 1px solid transparent;
         transition: 0.2s;
         white-space: nowrap;
     }
 
     .btn-apercu { background-color: #f6f8fa; color: #24292e; border-color: #d1d5da; }
-    .btn-apercu:hover { background-color: #f3f4f6; }
-
     .btn-telecharger { background-color: #0366d6; color: white; border-color: #0366d6; }
-    .btn-telecharger:hover { background-color: #005cc5; }
 
     @media (max-width: 500px) {
         .conteneur-fichier { flex-direction: column; align-items: flex-start; }
