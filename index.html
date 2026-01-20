@@ -1,4 +1,4 @@
-    <h1>Liste</h1>
+   <h1>Liste</h1>
 <div class="conteneur-fichier">
     <div class="infos-fichier">
         <span class="icone-fichier">🖼️</span>
@@ -7,8 +7,11 @@
             <p>Aperçu largeur automatique | Mise à jour : 19 janv. 2026</p>
         </div>
     </div>
-    
+
     <div class="group-boutons">
+        <button onclick="ouvrirApercuForce()" class="btn-action btn-apercu">
+            Aperçu
+        </button>
         <button onclick="ouvrirApercuHache()" class="btn-action btn-apercu">Aperçu</button>
 
 <script>
@@ -50,7 +53,7 @@ function ouvrirApercuHache() {
 function ouvrirApercuForce() {
     const urlImage = "Ep-equipment-CE-produits-2026-01-16.png";
     const fenetreApercu = window.open("");
-    
+
     // On construit une page HTML complète dans le nouvel onglet
     fenetreApercu.document.write(`
         <!DOCTYPE html>
@@ -126,12 +129,3 @@ function ouvrirApercuForce() {
         .btn-action { flex: 1; text-align: center; }
     }
 </style>
-<div class="group-boutons">
-    <a href="./pic1/" target="_blank" class="btn-action btn-apercu">
-        Aperçu
-    </a>
-
-    <a href="Ep-equipment-CE-produits-2026-01-16.png" download class="btn-action btn-telecharger">
-        Télécharger
-    </a>
-</div>
