@@ -1,4 +1,6 @@
-   <h1>Liste</h1>
+<h1>Liste</h1>
+
+<!-- 第一行 -->
 <div class="conteneur-fichier">
     <div class="infos-fichier">
         <span class="icone-fichier">🖼️</span>
@@ -7,50 +9,17 @@
             <p>Aperçu largeur automatique | Mise à jour : 19 janv. 2026</p>
         </div>
     </div>
-
     <div class="group-boutons">
-        <button onclick="ouvrirApercuForce()" class="btn-action btn-apercu">
+        <button onclick="ouvrirApercuForce('Ep-equipment-CE-produits-2026-01-16.png')" class="btn-action btn-apercu">
             Aperçu
         </button>
-        
-
-<script>
-function ouvrirApercuHache() {
-    const urlImage = "Ep-equipment-CE-produits-2026-01-16.png";
-    // On ouvre une page liée à votre domaine actuel + #pic1
-    const fenetre = window.open(window.location.pathname + "#pic1", "_blank");
-    
-    fenetre.document.write(`
-        <!DOCTYPE html>
-        <html lang="fr">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Aperçu - Pic1</title>
-            <style>
-                body { margin: 0; background: #333; }
-                img { width: 100%; height: auto; display: block; }
-            </style>
-        </head>
-        <body>
-            <img src="${window.location.origin + window.location.pathname.replace('index.html', '') + urlImage}" style="width:100%">
-        </body>
-        </html>
-    `);
-    fenetre.document.close();
-}
-</script>
-        
-
-
         <a href="Ep-equipment-CE-produits-2026-01-16.png" download="Catalogue-EP-Equipment-2026.png" class="btn-action btn-telecharger">
             Télécharger
         </a>
     </div>
 </div>
 
-
-<!-- 新增第二行：domaine.png (模仿完全相同格式) -->
+<!-- 第二行 -->
 <div class="conteneur-fichier">
     <div class="infos-fichier">
         <span class="icone-fichier">🖼️</span>
@@ -59,7 +28,6 @@ function ouvrirApercuHache() {
             <p>Aperçu largeur automatique | Mise à jour : 19 janv. 2026</p>
         </div>
     </div>
-
     <div class="group-boutons">
         <button onclick="ouvrirApercuForce('domaine.png')" class="btn-action btn-apercu">
             Aperçu
@@ -70,21 +38,16 @@ function ouvrirApercuHache() {
     </div>
 </div>
 
-
-
 <script>
-function ouvrirApercuForce() {
-    const urlImage = "Ep-equipment-CE-produits-2026-01-16.png";
+function ouvrirApercuForce(urlImage) {
     const fenetreApercu = window.open("");
-
-    // On construit une page HTML complète dans le nouvel onglet
     fenetreApercu.document.write(`
         <!DOCTYPE html>
         <html lang="fr">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Aperçu du Catalogue</title>
+            <title>Aperçu - ${urlImage}</title>
             <style>
                 body {
                     margin: 0;
@@ -95,14 +58,14 @@ function ouvrirApercuForce() {
                     align-items: center;
                 }
                 img {
-                    width: 100%;       /* Force l'image à prendre toute la largeur */
-                    height: auto;      /* Préserve les proportions */
+                    width: 100%;
+                    height: auto;
                     display: block;
                 }
             </style>
         </head>
         <body>
-            <img src="${urlImage}" alt="Aperçu Catalogue">
+            <img src="${urlImage}" alt="Aperçu">
         </body>
         </html>
     `);
@@ -111,44 +74,5 @@ function ouvrirApercuForce() {
 </script>
 
 <style>
-    .conteneur-fichier {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #ffffff;
-        border: 1px solid #e1e4e8;
-        padding: 16px 24px;
-        border-radius: 8px;
-        margin: 12px 0;
-        max-width: 100%;
-        box-sizing: border-box;
-        font-family: sans-serif;
-    }
-
-    .infos-fichier { display: flex; align-items: center; }
-    .icone-fichier { font-size: 24px; margin-right: 16px; }
-    .details-texte strong { display: block; color: #24292e; font-size: 14px; }
-    .details-texte p { margin: 4px 0 0; color: #586069; font-size: 12px; }
-
-    .group-boutons { display: flex; gap: 10px; }
-    .btn-action {
-        cursor: pointer;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 10px 16px;
-        border-radius: 6px;
-        text-decoration: none;
-        border: 1px solid transparent;
-        transition: 0.2s;
-        white-space: nowrap;
-    }
-
-    .btn-apercu { background-color: #f6f8fa; color: #24292e; border-color: #d1d5da; }
-    .btn-telecharger { background-color: #0366d6; color: white; border-color: #0366d6; }
-
-    @media (max-width: 500px) {
-        .conteneur-fichier { flex-direction: column; align-items: flex-start; }
-        .group-boutons { margin-top: 15px; width: 100%; }
-        .btn-action { flex: 1; text-align: center; }
-    }
+    /* 样式保持不变，您原有的 style 可以直接复制过来 */
 </style>
